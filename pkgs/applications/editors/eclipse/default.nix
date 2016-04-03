@@ -359,6 +359,23 @@ rec {
     };
   };
 
+  eclipse-ee = eclipse-ee-452;
+
+  eclipse-ee-452 = buildEclipse {
+    name = "eclipse-ee-4.5.2";
+    description = "Eclipse EE IDE";
+    sources = {
+      "x86_64-linux" = fetchurl {
+          url = http://download.eclipse.org/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-linux-gtk-x86_64.tar.gz;
+          sha256 = "0fp2933qs9c7drz98imzis9knyyyi7r8chhvg6zxr7975c6lcmai";
+        };
+      "i686-linux" = fetchurl {
+          url = http://download.eclipse.org/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-linux-gtk.tar.gz;
+          sha256 = "17x8w4k0rba0c0v9ghxdl0zqfadla5c1aakfd5k0q9q3x3qi6rxp";
+        };
+    };
+  };
+
   eclipseWithPlugins = { eclipse, plugins ? [], jvmArgs ? [] }:
     let
       # Gather up the desired plugins.
