@@ -18,7 +18,7 @@ let
   # revision/hash as well. See
   # http://download.virtualbox.org/virtualbox/${version}/SHA256SUMS
   # for hashes.
-  version = "5.0.20";
+  version = "5.0.12";
 
   forEachModule = action: ''
     for mod in \
@@ -44,6 +44,7 @@ let
     name = "Oracle_VM_VirtualBox_Extension_Pack-${version}-${extpackRevision}.vbox-extpack";
     # IMPORTANT: Hash must be base16 encoded because it's used as an input to
     # VBoxExtPackHelperApp!
+    # TODO: update hash
     sha256 = "11f40842a56ebb17da1bbc82a21543e66108a5330ebd54ded68038a990aa071b";
     message = ''
       In order to use the extension pack, you need to comply with the VirtualBox Personal Use
@@ -63,6 +64,7 @@ in stdenv.mkDerivation {
 
   src = fetchurl {
     url = "http://download.virtualbox.org/virtualbox/${version}/VirtualBox-${version}.tar.bz2";
+    # TODO: update hash
     sha256 = "0asc5n9an2dzvrd4isjz3vac2h0sm6dbzvrc36hn8ag2ma3hg75g";
   };
 
